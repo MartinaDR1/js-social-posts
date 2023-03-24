@@ -75,10 +75,7 @@ likeBtn.forEach((element, index) => {
         likesCounter[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`
     }
     )
-
 })
-
-
 
 
 
@@ -95,7 +92,7 @@ function markupPost (post) {
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${post.author.name}</div>
-                    <div class="post-meta__time">${post.created}</div>
+                    <div class="post-meta__time">${changeDate(post.created)}</div>
                 </div>                    
             </div>
         </div>
@@ -121,7 +118,15 @@ function markupPost (post) {
     return postMarkup
 }
 
+//Funzione per impostare la data in formato americano
+function changeDate(dateStr) {
+    const year = dateStr.substring(0,4);
+    const month =dateStr.substring(5,7);
+    const day = dateStr.substring(8,12);
 
+    const newDate = `${month}-${day}-${year}`
+    return newDate
+}
 
 
 
