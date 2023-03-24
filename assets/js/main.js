@@ -67,20 +67,28 @@ posts.forEach((post) => {
 
 const likeBtn = document.querySelectorAll(".like-button")
 const likesCounter = document.querySelectorAll(".likes__counter");  
+const idPost = document.querySelectorAll('posts.id')
 
+//Array per i post a cui si è messo like
+const liked=[];
 
 likeBtn.forEach((element, index) => {
     element.addEventListener("click", function() {
         element.classList.toggle("like-button--liked");
+
         //Se il bottone ha la classe attiva si incrementa il counter dei like
         if(element.classList.contains("like-button--liked")){
             likesCounter[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`
+            liked.push(posts[index].id)
         } else {
             likesCounter[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes}</b> persone`
+            liked.splice(index)
         }
+        console.log(liked);
     }
     )
 })
+
 
 
 
