@@ -57,13 +57,28 @@ const posts = [
 ];
 
 //Elementi della DOM
-const containerEl = document.querySelector('.container')
-
+const containerEl = document.getElementById('container');
 
 posts.forEach((post) => {
     
-    containerEl.innerHTML += post
+    containerEl.innerHTML += markupPost(post)
 })
+
+
+const likeBtn = document.querySelectorAll(".like-button")
+const likesCounter = document.querySelectorAll(".likes__counter");  
+
+
+likeBtn.forEach((element, index) => {
+    element.addEventListener("click", function() {
+        element.classList.add("like-button--liked");
+        likesCounter[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`
+    }
+    )
+
+})
+
+
 
 
 
@@ -114,7 +129,7 @@ function markupPost (post) {
 
 
 /*Milestone 1
- Creiamo il nostro array di oggetti che rappresentano ciascun post.
+Creiamo il nostro array di oggetti che rappresentano ciascun post.
 Ogni post dovrà avere le informazioni necessarie per stampare la relativa card:
 id del post, numero progressivo da 1 a n
 nome autore,
