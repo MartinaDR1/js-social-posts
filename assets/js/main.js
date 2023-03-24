@@ -101,7 +101,7 @@ function markupPost (post) {
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${post.author.image}" alt="${post.author.name}">                    
+                ${post.author.image === null ? initialName(post.author.name) : `<img class="profile-pic" src="${post.author.image}" alt="${post.author.name}">`}                
                 </div>
                 <div class="post-meta__data">
                     <div class="post-meta__author">${post.author.name}</div>
@@ -141,7 +141,21 @@ function changeDate(dateStr) {
     return newDate
 }
 
+//Funzione per le iniziali del nome
+function initialName(name) {
+    const slitName = name.split(" ");
+    console.log(slitName);
+    
+    const firstName= slitName[0].charAt(0)
+    console.log(firstName);
+    const lastName= slitName[1].charAt(0)
+    console.log(lastName);
 
+    const initialName= firstName + lastName
+    console.log(initialName);
+
+    return initialName
+}
 
 
 
