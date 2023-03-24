@@ -71,8 +71,13 @@ const likesCounter = document.querySelectorAll(".likes__counter");
 
 likeBtn.forEach((element, index) => {
     element.addEventListener("click", function() {
-        element.classList.add("like-button--liked");
-        likesCounter[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`
+        element.classList.toggle("like-button--liked");
+        //Se il bottone ha la classe attiva si incrementa il counter dei like
+        if(element.classList.contains("like-button--liked")){
+            likesCounter[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes + 1}</b> persone`
+        } else {
+            likesCounter[index].innerHTML = `Piace a <b id="like-counter-1" class="js-likes-counter"> ${posts[index].likes}</b> persone`
+        }
     }
     )
 })
@@ -127,6 +132,8 @@ function changeDate(dateStr) {
     const newDate = `${month}-${day}-${year}`
     return newDate
 }
+
+
 
 
 
