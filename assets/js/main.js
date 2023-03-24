@@ -123,13 +123,13 @@ function markupPost (post) {
     return postMarkup
 }
 
-//Funzione per impostare la data in formato americano
+//Funzione per impostare la data in formato italiano
 function changeDate(dateStr) {
     const year = dateStr.substring(0,4);
     const month =dateStr.substring(5,7);
     const day = dateStr.substring(8,12);
 
-    const newDate = `${month}-${day}-${year}`
+    const newDate = `${day}-${month}-${year}`
     return newDate
 }
 
